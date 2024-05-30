@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "lightgbm-handbook"
+version = "0.1.0"
+authors = ["Your Name"]
+description = "lightgbm-handbook"
+packages = [{ from = ".", include = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+black = { extras = ["jupyter"], version = "^23.12.1" }
+isort = "^5.13.2"
+jupyter = "*"
+mypy = "^1.8.0"
+pytest = "*"
+pytest-mock = "*"
+pandas = "^2.2.1"
+numpy = "^1.26.4"
+matplotlib = "^3.8.3"
+seaborn = "^0.13.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+plugins = "numpy.typing.mypy_plugin"
+exclude = "data/*"
+
+[tool.pylint.MASTER]
+disable = ["wrong-import-position", "line-too-long"]
