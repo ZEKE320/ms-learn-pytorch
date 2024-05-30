@@ -11,13 +11,13 @@
   },
 
   "features": {
-    "ghcr.io/devcontainers/features/java": {
-      "version": "latest",
-      "jdkDistro": "ms"
-    },
-    "ghcr.io/devcontainers/features/python": {
+    "ghcr.io/devcontainers/features/java:1": {},
+    "ghcr.io/devcontainers/features/python:1": {
       "version": "3.12",
       "installTools": false
+    },
+    "ghcr.io/devcontainers-contrib/features/poetry:2": {
+      "version": "latest"
     }
   },
 
@@ -70,7 +70,7 @@
 
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": {
-    "Poetry": "pip install --upgrade pip && pip install poetry && poetry install"
+    "Poetry": "poetry install"
   }
 
   // Configure tool-specific properties.
