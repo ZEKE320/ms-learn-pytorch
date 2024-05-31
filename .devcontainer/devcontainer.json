@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
-  "name": "LightGBM handbook",
+  "name": "Learn Pytorch",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
@@ -10,15 +10,24 @@
     "POETRY_VIRTUALENVS_IN_PROJECT": "true"
   },
 
+  "runArgs": ["--gpus", "all"],
+
+  "hostRequirements": {
+    "gpu": "optional"
+  },
+
   "features": {
-    "ghcr.io/devcontainers/features/java:1": {},
     "ghcr.io/devcontainers/features/python:1": {
       "version": "3.12",
       "installTools": false
     },
     "ghcr.io/devcontainers-contrib/features/poetry:2": {
       "version": "latest"
-    }
+    },
+    "ghcr.io/devcontainers/features/nvidia-cuda:1": {
+      "installCudnn": true
+    },
+    "ghcr.io/devcontainers/features/java:1": {}
   },
 
   "customizations": {
